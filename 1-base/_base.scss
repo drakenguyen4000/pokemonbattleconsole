@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  // height: auto;
+  background-color: $base-color;
+  color: $base-font-color;
+  font-family: $font;
+  font-weight: $font-weight-standard;
+  text-rendering: optimizeLegibility;
+}
+
+/*Main*/
+.console {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 8% 73.5% 18.5%;
+  grid-column-gap: 0px;
+  height: 100vh;
+  background-color: #f12f4f;
+  -webkit-box-shadow: 0 0 20px rgb(103, 1, 1) inset;
+  box-shadow: 0 0 20px rgb(103, 1, 1) inset;
+}

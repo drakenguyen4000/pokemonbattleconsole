@@ -1,0 +1,38 @@
+/*media query console*/
+@media screen and (min-height: 812px) {
+  .speaker {
+    display: grid;
+    height: 80%;
+  }
+  .speaker__port {
+    height: 6px;
+  }
+  .btn-start-pause {
+    @include dimension(58px, 12px);
+  }
+  .btn-text {
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (min-height: 1024px) {
+  .btn-text {
+    font-size: 0.9rem;
+  }
+}
+
+/*Safari support*/
+@media (aspect-ratio: 1/1) {
+  .console-bottom__left {
+    height: 46%;
+  }
+  .console-bottom__right {
+    height: 70%;
+  }
+}
+
+@media (aspect-ratio: 1.7/1) {
+  .green-display {
+    height: 64%;
+  }
+}

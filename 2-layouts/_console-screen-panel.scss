@@ -1,0 +1,89 @@
+/*======CONSOLE CENTER (SECTION 2)======*/
+.screen-panel {
+  @include dimension(100%, 96%);
+  margin: auto;
+  background-color: #dbdbdb;
+  border-radius: 0 0 0 25px;
+  box-shadow: 0px 2px 1px #797979;
+}
+
+.screen-panel-top {
+  display: flex;
+  justify-content: center;
+  height: 24px;
+}
+
+.screen-panel-top__light {
+  @include dimension(10px, 10px);
+  margin: 10px;
+  border-radius: 200px;
+  background-color: #e11133;
+}
+
+.screen {
+  @include dimension(88%, 95%);
+  margin: auto;
+  background-color: #000000;
+  border: 3px solid rgb(160, 159, 159);
+  border-radius: 0 0 10px 10px;
+}
+
+.display {
+  @include dimension(100%, 100%);
+  z-index: 200;
+  font-size: inherit;
+  background-color: #99d4ff;
+  border-radius: inherit;
+}
+
+iframe {
+  @include dimension(100%, 100%);
+  border-radius: 0 0 5px 5px;
+}
+
+//screen panel bottom
+.screen-panel-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @include dimension(8%, 100%);
+  padding: 0 10%;
+  padding-bottom: 3%;
+}
+
+.screen-panel-bottom__light {
+  @include dimension(20px, 20px);
+  background-color: red;
+  border-radius: 200px;
+}
+
+.speaker__port {
+  @include dimension(4px, 48px);
+  margin: 2px;
+  border-radius: 5px;
+  background-color: #6e6e6e;
+  border: 1px rgb(79, 78, 78) solid;
+}
+
+//Loading screen
+.loading-screen {
+  @include absolute-position;
+  z-index: 500;
+  background-color: #99d4ff;
+  @include dimension(100%, 100%);
+  padding-top: 20%;
+  text-align: center;
+}
+
+.loading-screen__image-wrapper {
+  background: white;
+  width: 100%;
+}
+
+.loading-screen__image {
+  max-height: 90px;
+}
+
+.loading-screen--hide {
+  display: none;
+}

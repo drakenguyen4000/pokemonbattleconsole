@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Bungee&family=Goldman:wght@700&family=Orbitron:wght@800&family=Righteous&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>Pokemon Battles</title>
+  </head>
+
+  <body>
+    <main class="console">
+      <div id="section1" class="console-top">
+        <div class="light light--skyblue"></div>
+        <div class="light light--red"></div>
+        <div class="light light--yellow"></div>
+        <div class="light light--green"></div>
+      </div>
+      <div id="section2" class="screen-panel">
+        <div class="screen-panel-top">
+          <div class="screen-panel-top__light"></div>
+          <div class="screen-panel-top__light"></div>
+        </div>
+        <div class="screen">
+          <div class="display">
+            <iframe
+              id="iframe"
+              src=""
+              name="screen-display"
+              allowTransparency="true"
+              scrolling="no"
+              frameborder="0"
+            >
+            </iframe>
+          </div>
+        </div>
+        <div class="screen-panel-bottom">
+          <span class="screen-panel-bottom__light"></span>
+          <div class="speaker">
+            <div class="speaker__port"></div>
+            <div class="speaker__port"></div>
+            <div class="speaker__port"></div>
+            <div class="speaker__port"></div>
+          </div>
+        </div>
+      </div>
+      <div id="section3" class="console-bottom">
+        <div class="console-bottom__left">
+          <button class="btn btn-select"></button>
+          <div class="btn-text-select">select</div>
+        </div>
+        <div class="console-bottom__center">
+          <div class="btn-start-guide-wrapper">
+            <div class="btn-wrapper">
+              <button class="btn-guide btn-guide--red"></button>
+              <div class="btn-text-guide">guide</div>
+            </div>
+            <div class="btn-wrapper">
+              <button class="btn-start btn-start--blue"></button>
+              <div class="btn-text-start">start</div>
+            </div>
+          </div>
+          <div class="green-display"></div>
+        </div>
+        <div class="console-bottom__right">
+          <div class="d-pad">
+            <button class="d-pad__btn d-pad__btn--up">&#9650;</button>
+            <button class="d-pad__btn d-pad__btn--down">&#9660;</button>
+            <div class="d-pad__btn d-pad__center"></div>
+            <button class="d-pad__btn d-pad__btn--left">&#9668;</button>
+            <button class="d-pad__btn d-pad__btn--right">&#9658;</button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="./src/app.js"></script>
+  </body>
+</html>

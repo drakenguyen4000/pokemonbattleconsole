@@ -1,0 +1,19 @@
+[
+  {
+    "name": "Growlithe",
+    "image": "https://pkmn.net/sprites/rs/big/58.png",
+    "oppSprite": "https://img.pokemondb.net/sprites/bank/normal/growlithe.png",
+    "playerSprite": "https://img.pokemondb.net/sprites/diamond-pearl/back-normal/growlithe.png",
+    "abilities": "Intimidate/Flash Fire",
+    "attack_1": "Flamewheel",
+    "attack_2": "Flamethrower",
+    "summary": "Pikachu that can generate powerful electricity have cheek sacs that are extra soft and super stretchy.",
+    "type": "Fire",
+    "weakness": "Water/Ground/Rock",
+    "health_active": 55,
+    "health_total": 55,
+    "attack": 70,
+    "defense": 45,
+    "evolve": "Arcanine"
+  }
+]

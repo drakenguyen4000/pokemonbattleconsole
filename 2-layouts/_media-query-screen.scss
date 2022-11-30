@@ -1,0 +1,123 @@
+/*media query for the iframe (console's screen)*/
+
+/*Actual screen height 667px -- iPhone SE 2nd Gen*/
+@media screen and (min-height: 425px) { 
+  .infobox {
+    font-size: .9rem;
+  }
+  .infobox__details {
+    font-size: .68rem;
+  }
+  .backpack, .panel, .menu-panel {
+    font-size: .83rem;
+  }
+}
+
+/*Actual screen height 926px -- iphone 13 Pro Max*/
+@media screen and (min-height: 592px) {
+  .display__intro-title {
+    font-size: 2.2rem;
+  }
+  .pressstart-text {
+    font-size: 1.4rem;
+  }
+  .infobox {
+    font-size: 1.1rem;
+    // color: yellow;
+  }
+  .infobox__details {
+    font-size: .72rem;
+  }
+  .backpack, .panel, .menu-panel {
+    font-size: 1.1rem;
+  }
+}
+
+/*Actual screen height 1024px -- iPad Mini*/
+@media screen and (min-height: 656px) {
+  .display__intro-title {
+    font-size: 3rem;
+  }
+  .pressstart-text {
+    font-size: 2rem;
+  }
+   .selection__name {
+    font-size: 1.1rem;
+  }
+  .infobox {
+    height: 100%;
+    font-size: 1.3rem;
+  }
+  .infobox__details {
+    font-size: 1.1rem;
+  }
+  .display__gameover {
+    font-size: 4rem;
+  }
+  .gameover-playagain {
+    font-size: 3.5rem;
+  }
+  .backpack, .panel, .menu-panel {
+    font-size: 1.3rem;
+  }
+  .btn-text-select, .btn-text-guide, .btn-text-start {
+    font-size: .8rem;
+  }
+}
+
+/*Actual screen height 1280px -- Kindle Fire HD*/
+@media screen and (min-height: 821px) {
+  .display__intro-title {
+    font-size: 4rem;
+  }
+  .pressstart-text {
+    font-size: 2.5rem;
+  }
+  .selection__name {
+    font-size: 1.5rem;
+  }
+  .infobox {
+    height: 100%;
+    font-size: 1.2rem;
+  }
+  .infobox__details {
+    font-size: 1.3rem;
+  }
+  .infobox__container {
+    font-size: 1.5rem;
+  }
+  .display__gameover {
+    font-size: 4.5rem;
+  }
+  .gameover-playagain {
+    font-size: 4rem;
+  }
+  .backpack, .panel, .menu-panel {
+    font-size: 1.6rem;
+  }
+  .btn-text-select, .btn-text-guide, .btn-text-start {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (min-height: 1000px) {
+  .btn-text-select, .btn-text-guide, .btn-text-start {
+    font-size: 1.2rem;
+  }
+}
+
+//Safari support
+@media (aspect-ratio: 1/1) {
+  .selection__img {
+    height: 90%;
+  }
+  .display__intro-pokeball {
+    height: 140%;
+  }
+}
+
+@media (aspect-ratio: 4.6/1) {
+  .display__intro-arena-circle {
+    height: 40%;
+  }
+}

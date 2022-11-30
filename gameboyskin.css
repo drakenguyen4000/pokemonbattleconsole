@@ -1,0 +1,41 @@
+
+/*----Gameboy Skin----*/
+.console {
+    background: #c4bebb;
+    box-shadow: 0 0 6px #7c7978 inset;
+  }
+  .console-top {
+    background: #c4bebb;
+    box-shadow: 0 0 6px #7c7978 inset;
+  }
+  
+  .screen-panel {
+    background-color: #8e8e8e;
+  }
+  
+  .screen {
+    border: 3px solid rgb(172, 172, 172);
+  }
+  
+  .btn-guide--red,
+  .btn-start--blue {
+    background-color: #8e8e8e;
+    border: 1px solid #4c4c4c;
+  }
+  
+  .btn-select {
+    background-color: #9a2257;
+  }
+  
+  .d-pad__btn {
+    background: #272929;
+    border: none;
+  }
+  .d-pad__center {
+    box-shadow: 1px 1px 1px #7d7d7d;
+  }
+  
+  .btn-text{
+    color: #494786;
+  }
+  

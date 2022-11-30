@@ -1,0 +1,42 @@
+
+.display__gameover {
+  @include absolute-position;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  @include dimension(100%, 100%);
+  font-family: "Goldman";
+  font-size: 2.5rem;
+  color: #f7fb36;
+  -webkit-text-stroke: 2px #0229b7;
+  text-align: center;
+  background: $battle-ground;
+  border-radius: 0 0 5px 5px;
+}
+
+.lost, .win {
+  text-transform: uppercase;
+}
+
+.win {
+  display: none;
+}
+
+.win--show {
+  display: block;
+}
+
+.lost--hide {
+  display: none;
+}
+
+.playagain {
+  margin-top: 20%;
+  font-size: 2rem;
+  text-transform: capitalize;
+}
+
+.playgain-arrow {
+  display: inline-block;
+  font-size: 1.2rem;
+}

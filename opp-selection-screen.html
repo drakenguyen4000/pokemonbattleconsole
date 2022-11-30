@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Bungee&family=Goldman:wght@700&family=Orbitron:wght@800&family=Righteous&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>Pokemon Battles</title>
+  </head>
+  <body>
+    <div class="display-selection">
+      <div class="selection grid-container">
+        <div class="loading-screen align-center">
+          <div class="loading-screen__image-wrapper">
+            <img src="https://pkmn.net/sprites/emerald/146.gif" />
+            <p>Loading...</p>
+          </div>
+        </div>
+        <ul class="selection__list"></ul>
+        <div class="infobox">
+          <div class="infobox__container infobox__container--yellow">
+            <div class="infobox__text">
+              <div class="infobox__text-choose">Which Pokemon will you encounter?</div>
+              <!-- <div class="infobox__text-selected hide">
+                Select this Pokemon?
+                <ul class="selection-option">
+                  <li class="selection-option__yes">
+                    <span class="option__yes-arrow">&#9658;</span>Yes
+                  </li>
+                  <li class="selection-option__no">
+                    <span class="option__no-arrow hide">&#9658;</span>No
+                  </li>
+                </ul>
+              </div> -->
+            </div>
+          </div>
+          <div class="infobox__container infobox__container--red">
+            <ul class="infobox__details info-list1">
+              <li>Type:</li>
+              <li>Health:</li>
+              <li>Attack:</li>
+              <li>Defense:</li>
+              <li>Weakness:</li>
+            </ul>
+            <ul class="infobox__details info-list2"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./src/opp-selection.js"></script>
+  </body>
+</html>

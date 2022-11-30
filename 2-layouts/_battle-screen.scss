@@ -1,0 +1,1501 @@
+/*======Battle Screen======*/
+.battle-container {
+  @include absolute-position;
+  display: grid;
+  // grid-template-rows: 18% 1fr 22%;
+  grid-template-rows: 18% 37% 22%;
+  @include dimension(100%, 100%);
+  background-color: $battle-ground;
+  border-radius: 10px;
+  text-shadow: 1px 1px rgb(154, 154, 154);
+  font-family: "Orbitron", sans-serif;
+}
+
+.sky-background {
+  background: linear-gradient(rgb(173, 216, 230) 60%, rgb(238, 244, 243));
+}
+
+.grass-background {
+  position: relative;
+}
+
+.player-wrapper {
+  position: relative;
+  align-self: end;
+}
+
+/*Health Panel*/
+.opponent-health {
+  width: 50%;
+  padding: 4px;
+  background: $health-panel-bg;
+  border: 5px solid $health-panel-border;
+  z-index: 100;
+}
+
+.opponent-health__name {
+  font-size: 0.75rem;
+}
+
+.opponent-health__panel {
+  width: 100%;
+  padding: 3px;
+  text-align: right;
+  background: $health-panel-border;
+}
+
+.opponent-health__wrapper {
+  display: flex;
+}
+
+.opponent-health__title {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: orange;
+  text-shadow: 1px 1px 0 rgb(78, 78, 78);
+}
+
+.opponent-health__bar {
+  display: inline-block;
+  @include dimension(8px, 100%);
+  background-color: red;
+  margin: auto;
+  border: 2px solid $health-bar-border;
+  border-radius: 5px;
+}
+
+.opponent-health__bar--fill {
+  display: block;
+  background: $health-bar;
+  @include dimension(100%, 100%);
+}
+
+.opponent-health__point {
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 800;
+}
+
+/*Opponent Pokemon*/
+.opponent {
+  position: relative;
+}
+
+.opponent__img {
+  position: absolute;
+  top: -60px;
+  right: 0;
+  height: 110px;
+  z-index: 90;
+}
+
+.opponent__circle {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  @include dimension(50px, 120px);
+  background-color: $arena-circle-bg;
+  border-radius: 50%;
+  border: 5px solid $arena-circle-border;
+  overflow: hidden;
+}
+
+/*Player Pokemon*/
+.player {
+  @include dimension(100px, 250px);
+  overflow: hidden;
+}
+
+.player__img {
+  position: relative;
+  bottom: -20px;
+  height: 110px;
+  z-index: 100;
+}
+
+.player__circle {
+  position: relative;
+  bottom: 50px;
+  right: 100px;
+  @include dimension(90px, 300px);
+  background: $arena-circle-bg;
+  border: 5px solid $arena-circle-border;
+  border-radius: 50%;
+}
+
+.player-health {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 46%;
+  padding: 5px;
+  background: $health-panel-bg;
+  border: 5px solid $health-panel-border;
+  z-index: 100;
+}
+
+.player-health__wrapper {
+  display: flex;
+}
+
+.player-health__panel {
+  display: inline-block;
+  width: 100%;
+  padding: 3px;
+  text-align: right;
+  background: $health-panel-border;
+}
+
+.player-health__title {
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 800;
+  color: orange;
+  text-shadow: 1px 1px 0 rgb(78, 78, 78);
+}
+
+.player-health__bar {
+  display: inline-block;
+  @include dimension(10px, 100%);
+  background-color: red;
+  margin: auto;
+  border-radius: 5px;
+  border: 2px solid $health-bar-border;
+}
+
+.player-health__bar--fill {
+  display: block;
+  background: $health-bar;
+  @include dimension(100%, 100%);
+}
+
+.player-health__point {
+  color: white;
+  font-weight: 800;
+}
+
+.option-grid {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  justify-items: center;
+  align-items: center;
+  text-transform: uppercase;
+  font-size: 0.65rem;
+}
+
+.option-grid--list {
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: 1fr;
+  justify-items: left;
+}
+
+.arrow {
+  visibility: hidden;
+}
+
+.arrow--selected {
+  visibility: visible;
+}
+
+//Player Attack animations
+.player-attack_1, .player-attack_2 {
+  animation: attacker-animate 2s;
+}
+
+.player-attack_3 {
+  animation: player-tackle  1s;
+}
+
+.player-energy {
+  visibility: hidden;
+}
+
+.player-energy--show {
+  visibility: visible;
+  position: absolute;
+  bottom: 20px;
+  left: 70px;
+  z-index: 95;
+}
+
+//Opponent Attack animations
+.opponent-attack_1, .opponent-attack_2, .opponent-attack_4 {
+  animation: attacker-animate 4s;
+}
+
+.opponent-attack_3 {
+  animation: opponent-tackle  1s;
+}
+
+.opponent-energy {
+  visibility: hidden;
+}
+
+.opponent-energy--show {
+  visibility: visible;
+  position: absolute;
+  top: -20px;
+  right: 80px;
+  z-index: 95;
+}
+
+/*Pikachu*/
+.player-Static--animate:before,
+.opponent-Static--animate:before {
+  font-family: FontAwesome;
+  content: "\f0e7";
+}
+
+.player-Static--animate {
+  animation: player-energy 2s;
+  color: yellow;
+  font-size: 0;
+  z-index: 105;
+}
+
+.opponent-Static--animate {
+  animation: opponent-energy 2s;
+  color: yellow;
+  font-size: 0;
+  z-index: 105;
+}
+
+/*Pikachu*/
+.player-Discharge--animate {
+  animation: Discharge 3s;
+  background: radial-gradient(farthest-corner at 60% 50%, #fff0ff, #8dd3ff, #2f4dac);
+  border:rgb(70, 128, 244) 4px dashed;
+  border-radius: 10px;
+  bottom: -10px;
+  left: 0px;
+}
+
+.opponent-Discharge--animate {
+  animation: Discharge 3s;
+  background: radial-gradient(farthest-corner at 60% 50%, #fff0ff, #8dd3ff, #2f4dac);
+  border:rgb(70, 128, 244) 4px dashed;
+  border-radius: 10px;
+  top: -70px;
+  right: 0px;
+}
+
+/*Bulbasaur*/
+.player-Razor-Leaf--animate {
+  animation: Razor-Leaf 4s;
+  z-index: 95;
+  left: 40px;
+  @include dimension(80px, 80px);
+  border: 20px dotted green;
+  border-radius: 100px;
+}
+
+.opponent-Razor-Leaf--animate {
+  animation: Razor-Leaf 4s;
+  z-index: 105;
+  top: -50px;
+  right: 15px;
+  @include dimension(80px, 80px);
+  border: 20px dotted green;
+  border-radius: 100px;
+}
+
+/*Bulbasaur*/
+.player-Solar-Beam--animate {
+  animation: Solar-Beam 4s;
+  bottom: -40px;
+  left: 0px;
+  @include dimension(120px, 120px);
+  background: white;
+  border-radius: 200px;
+}
+
+.opponent-Solar-Beam--animate {
+  animation: Solar-Beam 4s;
+  z-index: 100;
+  top: -40px;
+  right: 20px;
+  @include dimension(70px, 70px);
+  background: white;
+  border-radius: 200px;
+}
+
+/*Mewtwo*/
+.opponent-Confusion--animate {
+  animation: Confusion 4s;
+  top: -50px;
+  right: 15px;
+  @include dimension(80px, 80px);
+  border-radius: 100px;
+  // background: radial-gradient(closest-side, transparent, rgb(230, 224, 255), rgb(171, 95, 237));
+}
+
+.opponent-Aura-Sphere--animate {
+  animation: Solar-Beam 4s;
+  z-index: 100;
+  top: -40px;
+  right: 20px;
+  @include dimension(70px, 70px);
+  background: white;
+  border-radius: 200px;
+}
+
+/*Charmander*/
+.player-Ember--animate {
+  animation: player-Ember 3s;
+  border-radius: 100px;
+}
+
+.opponent-Ember--animate {
+  animation: opponent-Ember 3s;
+  right: 50px;
+  border-radius: 100px;
+}
+
+/*Growlith, Charmander*/
+.player-Flamethrower--animate {
+  animation: flamethrower 3s;
+}
+
+.opponent-Flamethrower--animate {
+  animation: flamethrower 3s;
+  right: 50px;
+  transform: rotate(180deg);
+}
+
+/*Growlith*/
+.player-Flamewheel--animate {
+  animation: Flamewheel 4s;
+  left: 40px;
+  @include dimension(80px, 80px);
+  border-radius: 100px;
+  background: radial-gradient(closest-side, transparent,lightyellow, orange);
+}
+
+.opponent-Flamewheel--animate {
+  animation: Flamewheel 4s;
+  top: -50px;
+  right: 15px;
+  @include dimension(80px, 80px);
+  border-radius: 100px;
+  background: radial-gradient(closest-side, transparent, lightyellow, orange);
+}
+
+/*SandShrew, Onix*/
+.player-Sandstorm--animate {
+  animation: Sandstorm 2s;
+  bottom: 10px;
+  border-radius: 200px;
+  background: radial-gradient(closest-side, transparent,#ebca97, #C5B59F );
+}
+
+.opponent-Sandstorm--animate {
+  animation: Sandstorm 2s;
+  top: -50px;
+  right: 15px;
+  border-radius: 100px;
+  background: radial-gradient(closest-side, transparent,#ebca97, #C5B59F );
+}
+
+.player-Sand--animate {
+  animation: player-Sand 2s;
+}
+
+.opponent-Sand--animate {
+  animation: opponent-Sand 2s;
+}
+
+/*Squirtle*/
+.player-Water-Gun--animate:before, .opponent-Water-Gun--animate:before {
+  font-family: FontAwesome;
+  content: "\f76f";
+}
+
+.player-Water-Gun--animate {
+  animation: player-energy 4s;
+  z-index: 105;
+  left: 190px;
+  bottom: 140px;
+  color: rgb(61, 194, 238);
+  font-size: 150%;
+  transform: rotate(45deg);
+}
+
+.opponent-Water-Gun--animate {
+  animation: opponent-energy 4s;
+  z-index: 105;
+  top: 70px;
+  right: 150px;
+  color: rgb(61, 194, 238);
+  font-size: 150%;
+  transform: rotate(225deg);
+}
+
+.player-Bubble--animate {
+  animation: player-bubble 1s;
+  border-radius: 100px;
+}
+
+.opponent-Bubble--animate {
+  animation: opponent-bubble 1s;
+  border-radius: 100px;
+}
+
+/*Gyrados*/
+.player-Hurricane--animate:before, .opponent-Hurricane--animate:before {
+  font-family: 'Material Icons';
+    content: "\f070";
+}
+
+.player-Hurricane--animate, .opponent-Hurricane--animate {
+  animation: Hurricane 3s infinite linear;
+  color: white;
+  font-size: 150px;
+  opacity: .1;
+}
+
+/*Gyrados*/
+.player-Hyperbeam--animate {
+  animation: Hyperbeam 3s;
+}
+
+.opponent-Hyperbeam--animate {
+  animation: Hyperbeam 3s;
+  top: 5px;
+  right: 75px;
+}
+
+/*Scyther*/
+.player-Air-Slash--animate {
+  animation: player-Air-Slash 2s;
+  bottom: 0;
+  left: 40px;
+  transform: rotate(-70deg);
+	border-radius: 80%;
+	box-shadow: 25px 10px 0px 0px #fff; 
+}
+.opponent-Air-Slash--animate {
+  animation: opponent-Air-Slash 2s;
+  top: -20px;
+  right: 65px;
+  transform: rotate(100deg);
+	border-radius: 80%;
+	box-shadow: 25px 10px 0px 0px #fff; 
+}
+
+/*Scyther*/
+.player-Double-Team--animate {
+  animation: player-Double-Team 2s;
+  background-image: url("https://img.pokemondb.net/sprites/black-white/anim/back-normal/scyther.gif");
+  @include dimension(170px, 170px);
+  border-radius: 200px;
+  left: 100px;
+  bottom: 70px;
+  background-size: 130px 130px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.opponent-Double-Team--animate {
+  animation: opponent-Double-Team 2s;
+  background-image: url("https://img.pokemondb.net/sprites/black-white/anim/normal/scyther-f.gif");
+  @include dimension(150px, 150px);
+  border-radius: 200px;
+  bottom: 70px;
+  left: 100px;
+  background-size: 110px 110px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.player-Rockthrow--animate {
+  animation: player-energy 2s;
+  bottom: 30px;
+  left: 85px;
+  @include dimension(40px, 30px);
+  border: 2px solid #757373;
+  border-radius: 10px 30px 20px 5px;
+  background: radial-gradient(closest-side, #b6b0b0, #a09898);
+  transform: rotate(225deg);
+}
+
+.opponent-Rockthrow--animate {
+  animation: opponent-energy 2s;
+  @include dimension(40px, 30px);
+  border-radius: 10px 30px 20px 5px;
+  background: radial-gradient(closest-side, #b6b0b0, #a09898);
+  border: 2px solid #757373;
+  transform: rotate(225deg);
+}
+
+.player--stagger {
+  animation: player-stagger 2s;
+}
+
+.opponent--stagger {
+  animation: opponent-stagger 2s;
+}
+
+//player attacks animation
+@keyframes attacker-animate {
+  0% {
+    filter: sepia(500%) hue-rotate(60deg) saturate(200%);
+  }
+  20% {
+    filter: sepia(0%) hue-rotate(0%) saturate(0%);
+  }
+  40% {
+    filter: sepia(500%) hue-rotate(60deg) saturate(200%);
+  }
+  60% {
+    filter: sepia(0%) hue-rotate(0%) saturate(0%);
+  }
+  80% {
+    filter: sepia(500%) hue-rotate(60deg) saturate(200%);
+  }
+  100% {
+    filter: sepia(0%) hue-rotate(0%) saturate(0%);
+  }
+}
+
+//Tackle animate
+@keyframes player-tackle  {
+    from {
+      left: 30px;
+    }
+    to {
+      left: 0px;
+    }
+}
+
+@keyframes opponent-tackle {
+    from {
+      top: -50px;
+      right: 20px;
+      height: 120px;
+    }
+    to {
+      right: 0;
+    }
+}
+
+//Light blue electric glow
+// @keyframes attacker-animate_2 {
+//   0% {
+//     filter: sepia(100%) hue-rotate(190deg) saturate(500%);
+//   }
+//   20% {
+//     filter: sepia(0%) hue-rotate(0%) saturate(0%);
+//   }
+//   40% {
+//     filter: sepia(100%) hue-rotate(190deg) saturate(500%);
+//   }
+//   60% {
+//     filter: sepia(0%) hue-rotate(0%) saturate(0%);
+//   }
+//   80% {
+//     filter: sepia(100%) hue-rotate(190deg) saturate(500%);
+//   }
+//   100% {
+//     filter: sepia(0%) hue-rotate(0%) saturate(0%);
+//   }
+// }
+
+//player energy projectile 
+@keyframes player-energy {
+  0% {
+    left: 85px;
+    bottom: 30px;
+    opacity: 0.3;
+    font-size: 250%;
+  }
+  20% {
+    left: 190px;
+    bottom: 140px;
+    opacity: 1;
+    font-size: 270%;
+  }
+  40% {
+    left: 180px;
+    bottom: 130px;
+    opacity: 0;
+    font-size: 290%;
+  } 
+  60% {
+    left: 80px;
+    bottom: 30px;
+    opacity: 0.3;
+    font-size: 350%;
+  }
+  80% {
+    left: 190px;
+    bottom: 140px;
+    opacity: 1;
+    font-size: 370%;
+  }
+  100% {
+    left: 190px;
+    bottom: 140px;
+    opacity: 0;
+    font-size: 390%;
+  } 
+}
+
+//static
+//Opponent energy projectile
+@keyframes opponent-energy {
+  0% {
+    top: -20px;
+    right: 80px;
+    opacity: 0.3;
+    font-size: 250%;
+  }
+  20% {
+    right: 150px;
+    top: 70px;
+    opacity: 1;
+    font-size: 270%;
+  }
+  40% {
+    right: 150px;
+    top: 60px;
+    opacity: 0;
+    font-size: 290%;
+  } 
+  60% {
+    top: -20px;
+    right: 80px;
+    opacity: 0.3;
+    font-size: 350%;
+  }
+  80% {
+    right: 150px;
+    top: 70px;
+    opacity: 1;
+    font-size: 370%;
+  }
+  100% {
+    right: 150px;
+    top: 70px;
+    opacity: 0;
+    font-size: 390%;
+  } 
+}
+
+@keyframes Discharge {
+  0% {
+    filter: sepia(100%) hue-rotate(190deg) saturate(500%);
+    opacity: .2;
+    border:rgb(70, 128, 244) 2px dashed;
+    @include dimension(110px, 110px);
+  }
+  10% {
+    opacity: .4;
+    border: 4px dashed white;
+  }
+  20% {
+    filter: sepia(0%) hue-rotate(0%) saturate(0%);
+    opacity: 0;
+    border:rgb(70, 128, 244) 4px dashed;
+    @include dimension(140px, 140px);
+  }
+  30% {
+    opacity: 0;
+    border: none;
+    background-color: none;
+  }
+  40% {
+    filter: sepia(100%) hue-rotate(190deg) saturate(500%);
+    opacity: .2;
+    border:rgb(70, 128, 244) 2px dashed;
+    @include dimension(110px, 110px);
+  }
+  50% {
+      opacity: .4;
+      border: 4px dashed white;
+  }
+  60% {
+    filter: sepia(0%) hue-rotate(0%) saturate(0%);
+    opacity: 0;
+    border:rgb(70, 128, 244) 4px dashed;
+    @include dimension(140px, 140px);
+  }
+  100% {
+    opacity: 0;
+    border: none;
+    background-color: none;
+  }
+}
+
+@keyframes opponent-energy_2 {
+  0% {
+    filter: sepia(500%) hue-rotate(60deg) saturate(200%);
+    left: 120px;
+    bottom: 100px;
+    opacity: 1;
+    font-size: 200%;
+  }
+  10% {
+    filter: sepia(0%) hue-rotate(0%) saturate(0%);
+    left: 70px;
+    bottom: 20px;
+    opacity: 0.5;
+    font-size: 150%;
+  }
+  20% {
+    opacity: 0;
+  }
+  30% {
+    filter: sepia(500%) hue-rotate(60deg) saturate(200%);
+    left: 10px;
+    bottom: 90px;
+    opacity: 1;
+    font-size: 200%;
+    transform: scaleX(-1);
+  }
+  40% {
+    filter: sepia(0%) hue-rotate(0%) saturate(0%);
+    left: 60px;
+    bottom: 20px;
+    opacity: 0.5;
+    font-size: 150%;
+  }
+  50% {
+    opacity: 0;
+  }
+  60% {
+    filter: sepia(500%) hue-rotate(60deg) saturate(200%);
+    left: 105px;
+    bottom: 100px;
+    opacity: 1;
+    font-size: 200%;
+    transform: scaleX(1);
+  }
+  70% {
+    filter: sepia(0%) hue-rotate(0%) saturate(0%);
+    left: 70px;
+    bottom: 20px;
+    opacity: 0.5;
+    font-size: 150%;
+  }
+  80% {
+    opacity: 0;
+  }
+  90% {
+    filter: sepia(500%) hue-rotate(60deg) saturate(200%);
+    left: 0px;
+    bottom: 90px;
+    opacity: 1;
+    font-size: 200%;
+    transform: scaleX(-1);
+  }
+  98% {
+    filter: sepia(0%) hue-rotate(0%) saturate(0%);
+    left: 60px;
+    bottom: 20px;
+    opacity: 0.5;
+    font-size: 150%;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+//Spinning Projectile
+@keyframes Razor-Leaf {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: rotate(1440deg);
+    border: 12px dotted green;
+    @include dimension(100px, 100px);
+    opacity: 1;
+  }
+}
+
+@keyframes Flamewheel {
+  0% {
+    opacity: 0.5;
+    border:  10px dashed orange;
+  }
+  100% {
+    transform: rotate(1440deg);
+    border:  15px solid orange;
+    @include dimension(100px, 100px);
+    opacity: 1;
+  }
+}
+
+
+@keyframes Confusion {
+  0% {
+    opacity: 0.5;
+    border:  10px dashed rgb(126, 54, 213);
+  }
+  100% {
+    transform: rotate(1440deg);
+    border:  10px dashed rgb(126, 54, 213);
+    @include dimension(200px, 200px);
+    opacity: .9;
+  }
+}
+
+
+@keyframes Sandstorm {
+  0% {
+    opacity: 0.5;
+    @include dimension(50px, 50px);
+  }
+  100% {
+    z-index: 200;
+    @include dimension(2000px, 2000px);
+    opacity: 0.5;
+  }
+}
+
+@keyframes Hyperbeam {
+  0% {
+    @include dimension(70px, 70px);
+    border-radius: 1000% 50% 1000% 50%;
+    opacity: .7;
+    background: linear-gradient(0.40turn, rgb(155, 185, 247),  rgb(122, 166, 254));
+  }
+  15% {
+    @include dimension(200px, 200px);
+    border-radius: 1000% 50% 1000% 50%;
+    opacity: .7;
+    background: linear-gradient(white,  rgb(70, 128, 244));
+  }
+  30% {
+    @include dimension(200px, 200px);
+    border-radius: 1000% 50% 1000% 50%;
+    opacity: .7;
+    background: linear-gradient(0.40turn, rgb(155, 185, 247),  rgb(122, 166, 254));
+  }
+  45% {
+    @include dimension(200px, 200px);
+    border-radius: 1000% 50% 1000% 50%;
+    opacity: .7;
+    background: linear-gradient(white,  rgb(70, 128, 244));
+  }
+  60% {
+    @include dimension(200px, 200px);
+    border-radius: 1000% 50% 1000% 50%;
+    opacity: .7;
+    background: linear-gradient(0.40turn, rgb(155, 185, 247),  rgb(122, 166, 254));
+  }
+  65% {
+    @include dimension(200px, 200px);
+    border-radius: 1000% 50% 1000% 50%;
+    opacity: .7;
+    background: linear-gradient(white,  rgb(70, 128, 244));
+  }
+  80% {
+    @include dimension(200px, 200px);
+    border-radius: 1000% 50% 1000% 50%;
+    opacity: .7;
+    background: linear-gradient(0.40turn, rgb(155, 185, 247),  rgb(122, 166, 254));
+  }
+  95% {
+    @include dimension(200px, 200px);
+    border-radius: 1000% 50% 1000% 50%;
+    opacity: .7;
+    background: linear-gradient(white,  rgb(70, 128, 244));
+  }
+  100% {
+    background: linear-gradient(0.40turn, rgb(155, 185, 247),  rgb(122, 166, 254));
+     border-radius: 1000% 50% 1000% 50%;
+     opacity: .7;
+  }
+}
+
+@keyframes Hurricane {
+  0% {
+    opacity: .5;
+    transform: rotate(-1440deg);
+  }
+  25% {
+    opacity: .4;
+  }
+  50% {
+    opacity: .3;
+  }
+  75% {
+    opacity: .2;
+  }
+ 100% {
+    opacity: .1;
+  }
+}
+
+@keyframes player-Air-Slash {
+  0% {
+    opacity: 0;
+    @include dimension(60px, 60px);
+  }
+  40% {
+    bottom: 70px;
+    left: 150px;
+    opacity: .7;
+    @include dimension(100px, 100px);
+  }
+  60% {
+    bottom: 0;
+    left: 40px;
+    opacity: 0;
+    @include dimension(60px, 60px);
+  }
+  100% {
+    bottom: 70px;
+    left: 150px;
+    opacity: .7;
+    @include dimension(100px, 100px);
+  } 
+}
+
+@keyframes opponent-Air-Slash {
+  0% {
+    opacity: 0;
+    @include dimension(60px, 60px);
+  }
+  40% {
+    top: 50px;
+    right: 100px;
+    opacity: .7;
+    @include dimension(100px, 100px);
+  }
+  60% {
+    top: -20px;
+    right: 65px;
+    opacity: 0;
+    @include dimension(60px, 60px);
+  }
+  100% {
+    top: 50px;
+    right: 100px;
+    opacity: .7;
+    @include dimension(100px, 100px);
+  } 
+}
+
+@keyframes player-Double-Team {
+  from {
+    bottom: 0px;
+    left: 40px;
+    opacity: .7;
+    background-color: lightgreen;
+    filter: sepia(100%) hue-rotate(105deg) saturate(500%);
+  }
+  20% {
+    bottom: 70px;
+    left: 100px;
+    opacity: 1;
+    border: none;
+    background-color: transparent;
+    filter: sepia(0%) hue-rotate(0) saturate(0%);
+  }
+  to {
+    bottom: 70px;
+    left: 100px;
+    opacity: 1;
+    background-color: lightgreen;
+    filter: sepia(100%) hue-rotate(105deg) saturate(500%);
+  }
+}
+
+@keyframes opponent-Double-Team {
+  from {
+    top: -20px;
+    right: 65px;
+    opacity: .7;
+    background-color: lightgreen;
+    filter: sepia(100%) hue-rotate(105deg) saturate(500%);
+  }
+  20% {
+    bottom: 70px;
+    left: 100px;
+    opacity: 1;
+    background-color: transparent;
+    filter: sepia(0%) hue-rotate(0) saturate(0%);
+  }
+  to {
+    bottom: 70px;
+    left: 100px;
+    opacity: 1;
+    background-color: lightgreen;
+    filter: sepia(100%) hue-rotate(105deg) saturate(500%);
+  }
+}
+
+@keyframes player-Sand {
+  0% {
+    bottom: 20px;
+    left: 70px;
+    opacity: .5;
+    border: 14px dotted #705a5a;
+    transform: rotate(1440deg);
+    @include dimension(40px, 40px);
+  }
+  25% {
+    bottom: 100px;
+    left: 120px;
+    opacity: 1;
+  }
+  100% {
+    border: none;
+  }
+}
+
+@keyframes opponent-Sand {
+  0% {
+    top: -20px;
+    right: 50px;
+    opacity: .5;
+    border: 8px dotted #ebca97;
+    transform: rotate(1440deg);
+    @include dimension(40px, 40px);
+  }
+  25% {
+    top: 50px;
+    right: 100px;
+    opacity: 1;
+  }
+  100% {
+    border: none;
+  }
+}
+
+@keyframes Solar-Beam {
+  0%   {background: white;@include dimension(140px, 140px);} 
+  25% {background: none;}
+  50%  {background: white;@include dimension(160px, 160px);}
+  75% {background: none;}
+  100%  {background: white;@include dimension(180px, 180px);}
+}
+
+@keyframes player-Ember {
+  0% {
+    bottom: 20px;
+    left: 70px;
+    opacity: .5;
+    @include dimension(20px, 20px);
+  }
+  10% {
+    bottom: 100px;
+    left: 120px;
+    border: 18px dotted red;
+    @include dimension(80px, 80px);
+    opacity: 1;
+  }
+  20% {
+    border: none;
+  }
+  30% {
+    bottom: 20px;
+    left: 70px;
+    opacity: .5;
+    @include dimension(20px, 20px);
+  }
+  40% {
+    bottom: 100px;
+    left: 120px;
+    border: 18px dotted red;
+    @include dimension(80px, 80px);
+    opacity: 1;
+  }
+  50% {
+    border: none;
+  }
+  60% {
+    bottom: 20px;
+    left: 70px;
+    opacity: .5;
+    @include dimension(20px, 20px);
+  }
+  70% {
+    bottom: 100px;
+    left: 120px;
+    border: 18px dotted red;
+    @include dimension(80px, 80px);
+    opacity: 1;
+  }
+  80% {
+    border: none;
+  }
+  90% {
+    bottom: 20px;
+    left: 70px;
+    opacity: .5;
+    @include dimension(20px, 20px);
+  }
+  95% {
+    bottom: 100px;
+    left: 120px;
+    border: 18px dotted red;
+    @include dimension(80px, 80px);
+    opacity: 1;
+  }
+  100% {
+    border: none;
+  }
+}
+
+@keyframes opponent-Ember {
+  0% {
+    top: -20px;
+    right: 50px;
+    opacity: .5;
+    @include dimension(20px, 20px);
+  }
+  10% {
+    top: 50px;
+    right: 85px;
+    border: 18px dotted red;
+    @include dimension(80px, 80px);
+    opacity: 1;
+  }
+  20% {
+    border: none;
+  }
+  30% {
+    top: -20px;
+    right: 50px;
+    opacity: .5;
+    @include dimension(20px, 20px);
+  }
+  40% {
+    top: 50px;
+    right: 85px;
+    border: 18px dotted red;
+    @include dimension(80px, 80px);
+    opacity: 1;
+  }
+  50% {
+    border: none;
+  }
+  60% {
+    top: -20px;
+    right: 50px;
+    opacity: .5;
+    @include dimension(20px, 20px);
+  }
+  70% {
+    top: 50px;
+    right: 85px;
+    border: 18px dotted red;
+    @include dimension(80px, 80px);
+    opacity: 1;
+  }
+  80% {
+    border: none;
+  }
+  90% {
+    top: -20px;
+    right: 50px;
+    opacity: .5;
+    @include dimension(20px, 20px);
+  }
+  95% {
+    top: 50px;
+    right: 85px;
+    border: 18px dotted red;
+    @include dimension(80px, 80px);
+    opacity: 1;
+  }
+  100% {
+    border: none;
+  }
+}
+
+@keyframes flamethrower {
+  0% {
+    @include dimension(70px, 70px);
+    background: yellow;
+    border: 10px solid orange;
+    border-radius: 70% 0% 70% 50%;
+    box-shadow: 0px 0px 9px 4px orange;
+  }
+  15% {
+    @include dimension(90px, 90px);
+    background: gold;
+    border: 16px solid orangered;
+    border-radius: 99% 0% 99% 50%;
+    box-shadow: 0px 0px 9px 4px  orangered;
+  }
+  30% {
+    @include dimension(70px, 70px);
+    background: yellow;
+    border: 10px solid orange;
+    border-radius: 70% 0% 70% 50%;
+    box-shadow: 0px 0px 9px 4px orange;
+  }
+  45% {
+    @include dimension(90px, 90px);
+    background: gold;
+    border: 16px solid orangered;
+    border-radius: 99% 0% 99% 50%;
+    box-shadow: 0px 0px 9px 4px  orangered;
+  }
+  60% {
+    @include dimension(70px, 70px);
+    background: yellow;
+    border: 10px solid orange;
+    border-radius: 70% 0% 70% 50%;
+    box-shadow: 0px 0px 9px 4px orange;
+  }
+  65% {
+    @include dimension(90px, 90px);
+    background: gold;
+    border: 16px solid orangered;
+    border-radius: 99% 0% 99% 50%;
+    box-shadow: 0px 0px 9px 4px  orangered;
+  }
+  80% {
+    @include dimension(70px, 70px);
+    background: yellow;
+    border: 10px solid orange;
+    border-radius: 70% 0% 70% 50%;
+    box-shadow: 0px 0px 9px 4px orange;
+  }
+  95% {
+    @include dimension(90px, 90px);
+    background: gold;
+    border: 16px solid orangered;
+    border-radius: 99% 0% 99% 50%;
+    box-shadow: 0px 0px 9px 4px  orangered;
+  }
+  100% {
+    background: gold;
+    border: 10px solid orange;
+    box-shadow: 0px 0px 9px 4px orange;
+
+  }
+}
+
+@keyframes player-bubble {
+  0% {
+    bottom: 20px;
+    left: 70px;
+    opacity: .5;
+  }
+  25% {
+    bottom: 70px;
+    left: 100px;
+    opacity: 1;
+    border: 50px dotted rgb(116, 209, 249);
+    @include dimension(160px, 160px);
+  }
+  30% {
+    border: 30px dotted rgb(116, 209, 249);
+    bottom: 70px;
+    left: 100px;
+  }
+  40% {
+    border: 40px dotted rgb(116, 209, 249);
+    @include dimension(160px, 160px);
+    bottom: 70px;
+    left: 100px;
+  }
+  100% {
+    border: none;
+    bottom: 70px;
+    left: 100px;
+  }
+}
+
+@keyframes opponent-bubble {
+  0% {
+    top: -20px;
+    right: 30px;
+    opacity: .5;
+  }
+  25% {
+    top: 30px;
+    right: 85px;
+    opacity: 1;
+    border: 50px dotted rgb(116, 209, 249);
+    @include dimension(160px, 160px);
+  }
+  30% {
+    border: 30px dotted rgb(116, 209, 249);
+    top: 30px;
+    right: 85px;
+  }
+  40% {
+    border: 40px dotted rgb(116, 209, 249);
+    @include dimension(160px, 160px);
+    top: 30px;
+    right: 85px;
+  }
+  100% {
+    border: none;
+    top: 30px;
+    right: 85px;
+  }
+}
+
+//Stagger animation
+@keyframes player-stagger {
+  from {
+    filter: sepia(100%) hue-rotate(-5deg) saturate(250%);
+    bottom: -23px;
+    left: 0px;
+  }
+  20% {
+    filter: sepia(0) hue-rotate(0) saturate(0);
+  }
+  to {
+    filter: sepia(100%) hue-rotate(-5deg) saturate(250%);
+  }
+}
+
+@keyframes opponent-stagger {
+  from {
+    filter: sepia(100%) hue-rotate(-5deg) saturate(250%);
+    top: -62px;
+    right: -2px;
+  }
+  20% {
+    filter: sepia(0) hue-rotate(0) saturate(0);
+  }
+  to {
+    filter: sepia(100%) hue-rotate(-5deg) saturate(250%);
+  }
+}
+
+/*--Backpack--*/
+.backpack, .panel, .menu-panel {
+  display:none;
+  @include dimension(80%, 96%);
+  // background: white;
+  background: #eaeaea;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left:auto;
+  margin-right:auto;
+  z-index: 200;
+  border: 5px solid rgb(169, 168, 168);
+  font-size: 0.7rem;
+  // border-radius:  20px;
+  padding: 2%;
+  h1 {
+    border: 3px solid #fc8785;
+    background-color: #df3d3a;
+    color: white;
+    padding: 1%;
+  }
+  div {
+    background-color: white;
+    padding: 1%;
+  }
+}
+
+
+
+.menu-panel {
+  @include dimension(40%, 80%);
+  font-size: 1rem;
+  top: 0;
+  bottom: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+  padding: 0 5%;
+}
+
+.backpack--show, .panel--show, .menu-panel--show {
+  display: grid;
+}
+
+.bag {
+  display: none;
+  // grid-template-rows: 1fr 1fr;
+}
+
+.bag--show {
+  display: grid;
+  // grid-template-rows: 1fr 1fr;
+}
+
+.bag > h3 {
+  text-align:  center;
+}
+
+.bag-list__item, .bag-title__item {
+  display: grid;
+  // grid-template-columns: 5% 10% 30% 55%;
+  grid-template-columns: 8% 12% 23% 55%;
+  grid-gap: 1%;
+  margin: 1%;
+  font-weight: 800;
+  text-shadow: none; 
+}
+
+.bag-item--selected{
+  color: rgb(1, 188, 1);
+}
+
+.bag-item-img {
+  filter: grayscale(.8);
+  border-radius: 2px;
+}
+
+.bag-item-img--selected {
+  filter: grayscale(0);
+  background: lightgreen;
+}
+
+.bag-item-img {
+  background-size: cover;
+  @include dimension(25px, 25px);
+}
+
+.exit-img {
+  text-align: center;
+  font-size: 1.8em;
+  border-radius: 2px;
+  border: 1px solid rgb(194, 194, 194);
+}
+
+.potion-img {
+  background-image: url("https://www.serebii.net/itemdex/sprites/pgl/potion.png");
+}
+.super-potion-img {
+  background-image: url("https://www.serebii.net/itemdex/sprites/pgl/superpotion.png");
+}
+.pokeball-img {
+  background-image: url("https://www.serebii.net/itemdex/sprites/pgl/pokeball.png");
+}
+
+.pokeBallHit {
+   filter: grayscale(80%);
+}
+
+.pokeBall {
+   filter: grayscale(0%);
+   height: 60px;
+   position: absolute;
+   top: -30px;
+   right: 30px;
+}
+
+.yourPkmnList {
+  display:none;
+}
+
+.yourPkmnList {
+  display:none;
+  @include dimension(100%, 100%);
+  position: absolute;
+  z-index: 300;
+  font-size: 0.7rem;
+}
+
+.yourPkmnList--show {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 1%;
+  list-style: none;
+}

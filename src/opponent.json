@@ -1,0 +1,20 @@
+[
+  {
+      "name": "Mewtwo (Boss)",
+      "image": "https://archives.bulbagarden.net/media/upload/archive/7/78/20100721215628%21150Mewtwo.png",
+      "oppSprite": "https://img.pokemondb.net/sprites/x-y/normal/mewtwo.png",
+      "playerSprite": "https://img.pokemondb.net/sprites/diamond-pearl/back-normal/mewtwo.png",
+      "abilities": "Pressure",
+      "attack_1": "Confusion",
+      "attack_2": "Aura-Sphere",
+      "attack_3": "Tackle",
+      "summary": "Mewtwo is a Psychic type Pokémon that was created by genetic manipulation.",
+      "type": "Psychic",
+      "weakness": "Bug",
+      "health_active": 106,
+      "health_total": 106,
+      "attack": 110,
+      "defense": 90,
+      "evolve": ""
+  }
+]

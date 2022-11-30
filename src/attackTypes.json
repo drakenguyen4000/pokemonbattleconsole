@@ -1,0 +1,23 @@
+[
+    {
+        "Air-Slash": "Flying",
+        "Aura-Sphere": "Fighting",
+        "Bubble": "Water",
+        "Confusion": "Psychic",
+        "Discharge": "Electric",
+        "Double-Team": "Normal",
+        "Ember": "Fire",
+        "Flamewheel": "Fire",
+        "Flamethrower": "Fire",
+        "Hurricane": "Flying",
+        "Hyperbeam": "Normal",
+        "Razor-Leaf": "Grass",
+        "Rockthrow": "Rock",
+        "Sand": "Ground",
+        "Sandstorm": "Rock",
+        "Solar-Beam": "Grass",
+        "Static": "Electric",
+        "Tackle": "Normal",
+        "Water-Gun": "Water"
+    }
+]

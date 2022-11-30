@@ -1377,6 +1377,7 @@
   margin-right:auto;
   z-index: 200;
   border: 5px solid rgb(169, 168, 168);
+  font-family: 'Teko', sans-serif;
   font-size: 0.7rem;
   // border-radius:  20px;
   padding: 2%;
@@ -1389,6 +1390,13 @@
   div {
     background-color: white;
     padding: 1%;
+    font-size: 1rem;
+    ol {
+      list-style-position: inside;
+      li {
+        margin-bottom: 1%;  
+      }
+    }
   }
 }
 

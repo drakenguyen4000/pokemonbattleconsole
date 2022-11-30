@@ -350,12 +350,14 @@ const guideText = () => {
   const general = `<h1>Poke Dex</h1>
   <div>
   <h4>Note: Click Guide button to scroll through.</h4>
-  <p>A player will select 3 Pokemon to bring into battle.</p>
-  <p>You will need fight 3 opponents become Pokemon Master.</p>
-  <p>Each Pokemon is weak against certain types of attacks.</p>
-  <p>You have 10 chance to switch Pokemon per battle.</p>
-  <p>Items are avaible to use for healing.</p>
-  <p>Pokeball can be thrown to catch Pokemon and end a battle.  The lower the Pokemon's health the higher chance of capture.</p></div>`;
+  <ol>
+  <li>In Selection Screen, a player will select 3 Pokemon to bring into battle. Use direction pad to move about screen.  Use Select button to choose Pokemon.  Selection button to confirm choice.</li>
+  <li>You will need fight 3 opponents become Pokemon Master.</li>
+  <li>Each Pokemon is weak against certain types of attacks.</li>
+  <li>You have 10 chance to switch Pokemon per battle.</li>
+  <li>Items are avaible to use for healing.</li>
+  <li>Pokeball can be thrown to catch Pokemon and end a battle.  The lower the Pokemon's health the higher chance of capture.</li></div>
+  </ol>`;
   const oppPkmn = state.opponentPokemon;
   const oppGuide = `<h1>Poke Dex</h1>
   <div>
@@ -1440,7 +1442,7 @@ async function init() {
     .catch((err) => console.log(err));
 
   // --Opponent Screen--//
-  // displayScreen("opp-selection-screen", oppSelectionScreen);
+  displayScreen("opp-selection-screen", oppSelectionScreen);
 
   // --Battle Screen Test load---//
   // const response1 = await fetch("./src/player.json").catch((err) =>

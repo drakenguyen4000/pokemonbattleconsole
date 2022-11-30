@@ -2845,6 +2845,7 @@ iframe {
   margin-right: auto;
   z-index: 200;
   border: 5px solid rgb(169, 168, 168);
+  font-family: "Teko", sans-serif;
   font-size: 0.7rem;
   padding: 2%;
 }
@@ -2857,6 +2858,13 @@ iframe {
 .backpack div, .panel div, .menu-panel div {
   background-color: white;
   padding: 1%;
+  font-size: 1rem;
+}
+.backpack div ol, .panel div ol, .menu-panel div ol {
+  list-style-position: inside;
+}
+.backpack div ol li, .panel div ol li, .menu-panel div ol li {
+  margin-bottom: 1%;
 }
 
 .menu-panel {

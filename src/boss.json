@@ -1,7 +1,7 @@
 [
     {
         "name": "Mewtwo (Boss)",
-        "image": "./src/img/Mewtwo.png",
+        "image": "https://img.pokemondb.net/artwork/avif/mewtwo.avif",
         "oppSprite": "https://img.pokemondb.net/sprites/x-y/normal/mewtwo.png",
         "playerSprite": "https://img.pokemondb.net/sprites/diamond-pearl/back-normal/mewtwo.png",
         "abilities": "Pressure",

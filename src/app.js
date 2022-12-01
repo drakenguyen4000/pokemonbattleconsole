@@ -494,7 +494,9 @@ selectButton.addEventListener("click", () => {
 rightButton.addEventListener("click", () => {
   sound.click.play();
   //Only works in selection screen, not selected-mode
-  if (state.screen === "selection-screen") {
+  const pokemonList = Object.keys(state.pokemonList).length;
+  if (state.screen === "selection-screen" && pokemonList !== 0) {
+    console.log("I'm running right button")
     numClicks += 1;
     //Set equal to # of selections available, if numClicks exceeds it, before changing direction
     numClicks > numItems
@@ -520,7 +522,8 @@ rightButton.addEventListener("click", () => {
 //Left button moves selection border one over to the left
 leftButton.addEventListener("click", () => {
   sound.click.play();
-  if (state.screen === "selection-screen") {
+  const pokemonList = Object.keys(state.pokemonList).length;
+  if (state.screen === "selection-screen" && pokemonList !== 0) {
     numClicks -= 1;
     //Set numClicks equal to zero, if numClicks goes below zero, before changing direction
     numClicks < 0 ? (numClicks = 0) : selectPageController("left");
@@ -538,7 +541,8 @@ leftButton.addEventListener("click", () => {
 //Down button moves selection border one below
 downButton.addEventListener("click", () => {
   sound.click.play();
-  if (state.screen === "selection-screen") {
+  const pokemonList = Object.keys(state.pokemonList).length;
+  if (state.screen === "selection-screen" && pokemonList !== 0) {
     numClicks += 3;
     //Reverse numClicks by -3, if numClicks exceeds # of selections available, before changing direction
     numClicks > numItems ? (numClicks -= 3) : selectPageController("down");
@@ -580,7 +584,8 @@ downButton.addEventListener("click", () => {
 //Switch to yes with up button
 upButton.addEventListener("click", () => {
   sound.click.play();
-  if (state.screen === "selection-screen") {
+  const pokemonList = Object.keys(state.pokemonList).length;
+  if (state.screen === "selection-screen" && pokemonList !== 0) {
     numClicks -= 3;
     //Reverse numClicks by +3, if numClicks goes below zero, before changing direction
     numClicks < 0 ? (numClicks += 3) : selectPageController("up");

@@ -351,7 +351,7 @@ const guideText = () => {
   <div>
   <h4>Note: Click Guide button to scroll through.</h4>
   <ol>
-  <li>In Selection Screen, a player will select 3 Pokemon to bring into battle. Use direction pad to move about screen.  Use Select button to choose Pokemon.  Selection button to confirm choice.</li>
+  <li>In Selection Screen, select 3 Pokemon to bring into battle. Use direction pad to move about screen.  Use Select button to choose Pokemon and confirm choice.</li>
   <li>You will need fight 3 opponents become Pokemon Master.</li>
   <li>Each Pokemon is weak against certain types of attacks.</li>
   <li>You have 10 chance to switch Pokemon per battle.</li>

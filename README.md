@@ -1,4 +1,4 @@
-# Pokemon Battle Realm (Console) - Javascript
+# Pokemon Battle Console - Javascript
 
 ### Project Description
 - This is a game created by me based on Pokemon games.  All sprites are properties of Pokemon and Nintendo.  This app is to show my coding skills and not for monetary gains.   

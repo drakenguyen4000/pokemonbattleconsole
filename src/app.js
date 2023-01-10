@@ -1446,10 +1446,10 @@ async function init() {
     })
     .catch((err) => console.log(err));
 
-  // --Opponent Screen--//
-  displayScreen("opp-selection-screen", oppSelectionScreen);
+  // --Opponent Screen Testing--//
+  // displayScreen("opp-selection-screen", oppSelectionScreen);
 
-  // --Battle Screen Test load---//
+  // --Battle Screen Testing---//
   // const response1 = await fetch("./src/player.json").catch((err) =>
   //   console.log(err)
   // );
